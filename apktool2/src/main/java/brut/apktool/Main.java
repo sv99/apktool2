@@ -243,8 +243,8 @@ public class Main {
 
         // Temporary flag to enable the use of aapt2. This will transform in time to a use-aapt1 flag, which will be
         // legacy and eventually removed.
-        if (cli.hasOption("use-aapt2")) {
-            config.useAapt2 = true;
+        if (cli.hasOption("use-aapt1")) {
+            config.aaptVersion = 1;
         }
 
         File outFile;
@@ -254,7 +254,7 @@ public class Main {
             outFile = null;
         }
 
-        if (config.netSecConf && !config.useAapt2) {
+        if (config.netSecConf && !config.isAapt2()) {
             System.err.println("-n / --net-sec-conf is only supported with --use-aapt2.");
             System.exit(1);
         }

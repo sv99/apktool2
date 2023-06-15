@@ -16,10 +16,7 @@
  */
 package brut.androlib.aapt1;
 
-import brut.androlib.ApkBuilder;
-import brut.androlib.ApkDecoder;
-import brut.androlib.BaseTest;
-import brut.androlib.TestUtils;
+import brut.androlib.*;
 import brut.androlib.meta.MetaInfo;
 import brut.common.BrutException;
 import brut.directory.ExtFile;
@@ -50,12 +47,16 @@ public class BuildAndDecodeTest extends BaseTest {
         LOGGER.info("Unpacking testapp...");
         TestUtils.copyResourceDir(BuildAndDecodeTest.class, "aapt1/testapp/", sTestOrigDir);
 
+        Config config = Config.getDefaultConfig();
+        config.aaptVersion = 1;
+        config.verbose = true;
+
         LOGGER.info("Building testapp.apk...");
         File testApk = new File(sTmpDir, "testapp.apk");
-        new ApkBuilder(sTestOrigDir).build(testApk);
+        new ApkBuilder(config, sTestOrigDir).build(testApk);
 
         LOGGER.info("Decoding testapp.apk...");
-        ApkDecoder apkDecoder = new ApkDecoder(testApk);
+        ApkDecoder apkDecoder = new ApkDecoder(config, testApk);
         apkDecoder.decode(sTestNewDir);
     }
 

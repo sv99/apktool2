@@ -40,7 +40,6 @@ public class Config {
     public boolean updateFiles = false;
     public boolean isFramework = false;
     public boolean resourcesAreCompressed = false;
-    public boolean useAapt2 = false;
     public boolean noCrunch = false;
     public int forceApi = 0;
     public Collection<String> doNotCompress;
@@ -77,11 +76,11 @@ public class Config {
     public String frameworkDirectory = null;
     public String frameworkTag = null;
     public String aaptPath = "";
-    public int aaptVersion = 1; // default to v1
+    public int aaptVersion = 2; // default to v2
 
     // utility functions
     public boolean isAapt2() {
-        return this.useAapt2 || this.aaptVersion == 2;
+        return this.aaptVersion == 2;
     }
 
     private Config() {

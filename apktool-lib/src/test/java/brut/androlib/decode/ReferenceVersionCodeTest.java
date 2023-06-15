@@ -14,12 +14,9 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package brut.androlib.aapt1;
+package brut.androlib.decode;
 
-import brut.androlib.ApkBuilder;
-import brut.androlib.ApkDecoder;
-import brut.androlib.BaseTest;
-import brut.androlib.TestUtils;
+import brut.androlib.*;
 import brut.androlib.meta.MetaInfo;
 import brut.directory.ExtFile;
 import brut.common.BrutException;
@@ -51,8 +48,12 @@ public class ReferenceVersionCodeTest extends BaseTest {
     public void referenceBecomesLiteralTest() throws BrutException, IOException {
         String apk = "issue1234.apk";
 
+        Config config = Config.getDefaultConfig();
+        config.aaptVersion = 1;
+        config.verbose = true;
+
         // decode issue1234.apk
-        ApkDecoder apkDecoder = new ApkDecoder(new ExtFile(sTmpDir + File.separator + apk));
+        ApkDecoder apkDecoder = new ApkDecoder(config, new ExtFile(sTmpDir + File.separator + apk));
         ExtFile decodedApk = new ExtFile(sTmpDir + File.separator + apk + ".out");
         File outDir = new File(sTmpDir + File.separator + apk + ".out");
         apkDecoder.decode(outDir);

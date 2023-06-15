@@ -58,7 +58,7 @@ public class NoNetworkConfigTest extends BaseTest {
         LOGGER.info("Building testapp.apk...");
         Config config = Config.getDefaultConfig();
         config.netSecConf = true;
-        config.useAapt2 = true;
+        config.aaptVersion = 2;
         File testApk = new File(sTmpDir, "testapp.apk");
         new ApkBuilder(config, sTestOrigDir).build(testApk);
 

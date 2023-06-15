@@ -49,7 +49,7 @@ public class DebuggableFalseChangeToTrueTest extends BaseTest {
         LOGGER.info("Building issue2328-debuggable-flase.apk...");
         Config config = Config.getDefaultConfig();
         config.debugMode = true;
-        config.useAapt2 = true;
+        config.aaptVersion = 2;
         config.verbose = true;
 
         File testApk = new File(sTmpDir, "issue2328-debuggable-flase.apk");

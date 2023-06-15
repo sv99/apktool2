@@ -45,7 +45,7 @@ public class NonStandardPkgIdTest extends BaseTest {
         TestUtils.copyResourceDir(BuildAndDecodeTest.class, "aapt2/pkgid8/", sTestOrigDir);
 
         Config config = Config.getDefaultConfig();
-        config.useAapt2 = true;
+        config.aaptVersion = 2;
         config.verbose = true;
 
         LOGGER.info("Building pkgid8.apk...");

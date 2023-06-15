@@ -39,14 +39,17 @@ public class AndroidOreoNotSparseTest extends BaseTest {
         LOGGER.info("Unpacking not_sparse.apk...");
         TestUtils.copyResourceDir(AndroidOreoNotSparseTest.class, "aapt1/issue1594", sTestOrigDir);
 
+        Config config = Config.getDefaultConfig();
+        config.aaptVersion = 1;
+        config.verbose = true;
+
         File testApk = new File(sTestOrigDir, "not_sparse.apk");
 
         LOGGER.info("Decoding not_sparse.apk...");
-        ApkDecoder apkDecoder = new ApkDecoder(testApk);
+        ApkDecoder apkDecoder = new ApkDecoder(config, testApk);
         apkDecoder.decode(sTestNewDir);
 
         LOGGER.info("Building not_sparse.apk...");
-        Config config = Config.getDefaultConfig();
         new ApkBuilder(config, sTestNewDir).build(testApk);
     }
 

@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package brut.androlib.aapt1;
+package brut.androlib.decode;
 
 import brut.androlib.ApkDecoder;
 import brut.androlib.BaseTest;
@@ -48,6 +48,7 @@ public class SkipAssetTest extends BaseTest {
         String apk = "issue1605.apk";
 
         Config config = Config.getDefaultConfig();
+        config.aaptVersion = 1;
         config.decodeAssets = Config.DECODE_ASSETS_NONE;
         config.forceDelete = true;
 

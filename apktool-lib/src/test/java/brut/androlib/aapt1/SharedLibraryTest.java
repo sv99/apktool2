@@ -65,6 +65,7 @@ public class SharedLibraryTest extends BaseTest {
         String apkName = "library.apk";
 
         Config config = Config.getDefaultConfig();
+        config.aaptVersion = 1;
         config.frameworkDirectory = sTmpDir.getAbsolutePath();
 
         new AndrolibResources(config).installFramework(new File(sTmpDir + File.separator + apkName));
@@ -79,6 +80,7 @@ public class SharedLibraryTest extends BaseTest {
 
         // setup apkOptions
         Config config = Config.getDefaultConfig();
+        config.aaptVersion = 1;
         config.frameworkDirectory = sTmpDir.getAbsolutePath();
         config.frameworkTag = "shared";
 

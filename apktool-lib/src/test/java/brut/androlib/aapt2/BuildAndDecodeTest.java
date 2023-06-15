@@ -45,7 +45,7 @@ public class BuildAndDecodeTest extends BaseTest {
         TestUtils.copyResourceDir(BuildAndDecodeTest.class, "aapt2/testapp/", sTestOrigDir);
 
         Config config = Config.getDefaultConfig();
-        config.useAapt2 = true;
+        config.aaptVersion = 2;
         config.verbose = true;
 
         LOGGER.info("Building testapp.apk...");
