@@ -2,10 +2,12 @@
 
 Original repository very slow receive PRs.
 
+Some ideas from [bundletool](https://github.com/google/bundletool).
+
 Changes:
 
 1. Merge libs in the single apktool-lib
-2.
+2. Extract class Config
 
 ### Apktool
 **This is the repository for Apktool. If you are looking for the Apktool website. Click [here](https://github.com/iBotPeaches/Apktool/tree/gh-pages).**
