@@ -1,0 +1,3 @@
+rootProject.name = 'apktool2'
+include 'apktool-lib',
+        'apktool2'
