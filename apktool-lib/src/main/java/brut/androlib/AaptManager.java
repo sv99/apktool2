@@ -14,9 +14,13 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package brut.util;
+package brut.androlib;
 
 import brut.common.BrutException;
+import brut.util.Jar;
+import brut.util.OS;
+import brut.util.OSDetection;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;

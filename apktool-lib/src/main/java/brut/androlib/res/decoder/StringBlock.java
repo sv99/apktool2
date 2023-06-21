@@ -115,7 +115,7 @@ public class StringBlock {
             return ResXmlEncoders.escapeXmlChars(text);
         }
 
-        // If the returned style is further in string, than string length. Lets skip it.
+        // If the returned style is further in string, then string length. Let's skip it.
         if (style[1] > text.length()) {
             return ResXmlEncoders.escapeXmlChars(text);
         }

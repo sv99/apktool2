@@ -17,7 +17,7 @@
 package brut.androlib.util;
 
 import brut.common.BrutException;
-import brut.util.AaptManager;
+import brut.androlib.AaptManager;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

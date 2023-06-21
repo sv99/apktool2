@@ -25,7 +25,7 @@ import brut.androlib.res.AndrolibResources;
 import brut.common.BrutException;
 import brut.directory.DirectoryException;
 import brut.directory.ExtFile;
-import brut.util.AaptManager;
+import brut.androlib.AaptManager;
 import brut.util.OSDetection;
 import org.apache.commons.cli.*;
 

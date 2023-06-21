@@ -16,6 +16,7 @@
  */
 package brut.androlib.res;
 
+import brut.androlib.AaptManager;
 import brut.androlib.exceptions.AndrolibException;
 import brut.androlib.exceptions.CantFindFrameworkResException;
 import brut.androlib.Config;
@@ -24,7 +25,7 @@ import brut.androlib.meta.PackageInfo;
 import brut.androlib.meta.VersionInfo;
 import brut.androlib.res.data.*;
 import brut.androlib.res.decoder.*;
-import brut.androlib.res.decoder.ARSCDecoder.ARSCData;
+import brut.androlib.res.decoder.ARSCData;
 import brut.androlib.res.decoder.ARSCDecoder.FlagsOffset;
 import brut.androlib.res.util.ExtMXSerializer;
 import brut.androlib.res.util.ExtXmlSerializer;
@@ -649,7 +650,7 @@ final public class AndrolibResources {
             cmd.add(aaptCommand);
         } catch (BrutException ex) {
             LOGGER.warning("aapt: " + ex.getMessage() + " (defaulting to $PATH binary)");
-            cmd.add(AaptManager.getAaptBinaryName(getAaptVersion()));
+            cmd.add(AaptManager.getAaptBinaryName(config.aaptVersion));
         }
 
         if (config.isAapt2()) {
@@ -1031,17 +1032,13 @@ final public class AndrolibResources {
 
     private File getAaptBinaryFile() throws AndrolibException {
         try {
-            if (getAaptVersion() == 2) {
+            if (config.isAapt2()) {
                 return AaptManager.getAapt2();
             }
             return AaptManager.getAapt1();
         } catch (BrutException ex) {
             throw new AndrolibException(ex);
         }
-    }
-
-    private int getAaptVersion() {
-        return config.isAapt2() ? 2 : 1;
     }
 
     public InputStream getAndroidFrameworkResourcesAsStream() {
