@@ -10,6 +10,7 @@ Changes:
 2. Extract class Config
 3. Divide class Androlib to ApkBuilder and ApkDecoder
 4. Use aapt2 by default
+5. Extract class Framework from the AndrolibResources
 
 ### Apktool
 **This is the repository for Apktool. If you are looking for the Apktool website. Click [here](https://github.com/iBotPeaches/Apktool/tree/gh-pages).**
